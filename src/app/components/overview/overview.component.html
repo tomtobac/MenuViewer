@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-sm-12">
+    <input type="text" class="form-control" id="search" placeholder="Search" [(ngModel)]="search">
+  </div>
+</div>
+<div class="divider"></div>
+<div class="row">
+  <div class="col-sm-12 col-md-3" *ngFor="let dish of dishes | searchDish:search">
+    <div class="thumbnail">
+      <img src="{{ dish.src }}" alt="..." style="min-height:200px;height:200px;">
+      <div class="caption">
+        <h3><b>{{ dish.name }}</b></h3>
+        <div class="divider"></div>
+        <p>
+          Author: <i>{{ dish.user }}</i></p>
+          <span class="label label-info">{{ dish.date | date:'short' }}</span>
+      </div>
+    </div>
+  </div>
+</div>
